@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import NotFound from './Pages/NotFound/NotFound';
 import Home from './Pages/HomePage/Home';
 import Login from './Pages/AuthPage/Login/Login';
+import SignUp from './Pages/AuthPage/SignUp/SignUp';
 
 function App() {
   return (
@@ -15,6 +16,9 @@ function App() {
           </Route>
           <Route exact path='/login'>
             <Login />
+          </Route>
+          <Route exact path='/register'>
+            <SignUp />
           </Route>
           <Route path='/404'>
             <NotFound />
