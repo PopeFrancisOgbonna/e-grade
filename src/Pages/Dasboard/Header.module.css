@@ -1,0 +1,56 @@
+.ebsu {
+  width: 40%;
+  height: 30%;
+  margin: 5px;
+}
+.imageDiv {
+  display: flex;
+  justify-content: space-between;
+}
+.icon_container {
+  margin: 17px 10px 5px 0;
+}
+.icons {
+  width: 40px;
+  height: 40px;
+  color: #094074;
+  margin: 5px;
+  cursor: pointer;
+}
+.headWrap {
+  background: #094074;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+  height: 70px;
+}
+.logo {
+  width: 180px;
+  height: 50px;
+  margin: 3px 5px;
+}
+.adminNav {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  width: 25%;
+}
+.adminNav p {
+  font-size: 1.4em;
+  font-weight: bold;
+  margin: 3% 2px;
+}
+.iconLink {
+  margin: 3% 5px 3% 0;
+  color: #fff;
+}
+.iconLink .icon:hover {
+  color: #fe9000;
+}
+.adminNav .icon {
+  width: 40px;
+  height: 40px;
+  margin: 3% 5px 3% 0;
+  cursor: pointer;
+}

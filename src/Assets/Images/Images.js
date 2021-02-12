@@ -6,6 +6,7 @@ import eLogo from './E-Grade.png';
 import adminIcon from './adminIcon.png';
 import repoIcon from './repoIcon.png';
 import studentIcon from './studentIcon.png';
+import questionPaper from './paper.png';
 
 
 
@@ -18,5 +19,6 @@ const Images = {
     adminIcon,
     repoIcon,
     studentIcon,
+    questionPaper,
 }
 export default Images;

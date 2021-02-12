@@ -1,0 +1,97 @@
+.mainWrap {
+  display: flex;
+  justify-content: space-evenly;
+}
+.sideNav {
+  background: #094074;
+  padding: 10px;
+  width: 20%;
+  height: 121vh;
+  padding-top: 4%;
+}
+.sideNav hr {
+  background-color: #ffd;
+  border: 4px solid #ffd;
+  border-radius: 10px;
+}
+.btnWrap {
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 10% 0;
+}
+.sideNavBtn {
+  padding: 10px;
+  border-radius: 15px;
+  margin: 5% 0;
+  width: 100%;
+  font-size: 1.8em;
+  font-weight: 800;
+  color: #fff;
+  background: #fe9000;
+  border-style: none;
+}
+.sideNavBtn:hover {
+  background: #094074;
+  border: 2px solid #ffd;
+  transition: all 1s ease;
+}
+#sideNavLogout {
+  background: #550e01;
+  margin: 75% 0 0 0;
+}
+#sideNavLogout:hover {
+  color: #094074;
+}
+
+.paperWrap {
+  height: 121vh;
+  width: 80%;
+}
+.paper {
+  width: 100%;
+}
+.banner {
+  background: #fe9000;
+  padding: 25px;
+  color: #fff;
+  text-align: center;
+}
+.title {
+  font-size: 2.4em;
+  font-weight: 900;
+}
+.banner .textP {
+  font-size: 1.3em;
+  font-weight: 600;
+}
+.listing {
+  display: flex;
+  padding: 5px;
+  justify-content: space-between;
+  margin: 0;
+}
+.itemS {
+  padding: 10px;
+  background: #094074c4;
+  color: #fff;
+  border-radius: 10px;
+  width: 25%;
+  text-align: center;
+  margin: 20px 1%;
+}
+.itemS h4 {
+  font-size: 3em;
+  font-weight: 800;
+}
+.itemS p {
+  font-size: 1.3em;
+  font-weight: 400;
+}
+.footer {
+  background: #094074;
+  text-align: center;
+  font-size: 1.2em;
+  padding: 5px;
+  color: #fff;
+  margin: 0;
+}
