@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Lecturer.module.css';
 import Images from '../../../Assets/Images/Images';
 import Header from '../Header';
-import {FaSuitcase, FaUser } from 'react-icons/fa'
+import {FaSuitcase, FaUser, FaMenuBar } from 'react-icons/fa'
 import Home from './Home';
 import LoadQuestion from './LoadQuestion';
 import ViewResult from './ViewResult';
