@@ -20,7 +20,7 @@ const Header = (props) =>{
             <div className={cx(styles.headWrap)}>
                 <img className={cx(styles.logo)} src={Images.eLogo} alt='logo' />
                 <div className={styles.adminNav}>
-                    <Link to='/dashboard/user' className={styles.iconLink}> <FaHome className={styles.icon}/></Link> 
+                    <FaHome onClick={()=>props.handleNav('')} className={cx(styles.icon, styles.iconLink)}/> 
                     <p>{props.username}</p>
                     <FaUserAlt className={styles.icon}/>
                 </div>
