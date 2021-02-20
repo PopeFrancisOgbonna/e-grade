@@ -1,6 +1,6 @@
 .ebsu {
-  width: 40%;
-  height: 30%;
+  width: 30%;
+  height: 20%;
   margin: 5px;
 }
 .imageDiv {
@@ -45,7 +45,7 @@
   margin: 3% 5px 3% 0;
   color: #fff;
 }
-.iconLink .icon:hover {
+.icon:hover {
   color: #fe9000;
 }
 .adminNav .icon {

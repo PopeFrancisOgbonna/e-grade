@@ -17,7 +17,7 @@ const Lecturer = () =>{
     }
     return(
         <div>
-            <Header username='Sunny Frank' />
+            <Header handleNav={handleNav} username='Sunny Frank' />
             <div className={styles.mainWrap}>
                 <div className={styles.sideNav}>
                     <FaSuitcase />

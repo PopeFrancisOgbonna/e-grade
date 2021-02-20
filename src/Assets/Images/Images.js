@@ -7,6 +7,7 @@ import adminIcon from './adminIcon.png';
 import repoIcon from './repoIcon.png';
 import studentIcon from './studentIcon.png';
 import questionPaper from './paper.png';
+import student from './student.png';
 
 
 
@@ -20,5 +21,6 @@ const Images = {
     repoIcon,
     studentIcon,
     questionPaper,
+    student,
 }
 export default Images;
