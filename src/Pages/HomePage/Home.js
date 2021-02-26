@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import cx from 'classname';
 import styles from './Home.module.css';
 import Header from '../../Components/Header/Header';
@@ -8,15 +8,17 @@ import Images from '../../Assets/Images/Images';
 
 
 const Home = () =>{
+    useEffect(() =>{
 
+    })
     return(
         <div>
             <Header />
             <Carousels />
-            <div className={cx(styles.flex)}>
-                <div className={styles.cardWrap}>
+            <div className={cx(styles.divWrap)}>
+                <div className={cx(styles.cardWrap,)}>
                     <div className={styles.flex}>
-                        <img src={Images.adminIcon} alt='staff' />
+                        <img className={styles.cardImg} src={Images.adminIcon} alt='staff' />
                         <h2>Digital Assessment</h2>
                     </div>
                     <p>
@@ -24,9 +26,9 @@ const Home = () =>{
                     </p>
                     <button className={styles.cardBtn}>Get Started</button>
                 </div>
-                <div className={styles.cardWrap}>
+                <div className={cx(styles.cardWrap,)}>
                     <div className={styles.flex}>
-                        <img src={Images.studentIcon} alt='staff' />
+                        <img className={styles.cardImg} src={Images.studentIcon} alt='staff' />
                         <h2>Zero<br/> Missing Script</h2>
                     </div>
                     <p>
@@ -34,9 +36,9 @@ const Home = () =>{
                     </p>
                     <button className={styles.cardBtn}>View Results</button>
                 </div>
-                <div className={styles.cardWrap}>
+                <div className={cx(styles.cardWrap,)}>
                     <div className={styles.flex}>
-                        <img src={Images.repoIcon} alt='staff' />
+                        <img className={styles.cardImg} src={Images.repoIcon} alt='staff' />
                         <h2>Digital Repository</h2>
                     </div>
                     <p>
@@ -46,7 +48,7 @@ const Home = () =>{
                 </div>
             </div>
             <hr />
-            <div className={styles.flex}>
+            <div className={styles.flex1}>
                 <div className={styles.schoolDiv}>
                     <h3 className={styles.title}>About the University</h3>
                     <img className={styles.school} src={Images.schoolBuilding} alt='EBSU Building'/>

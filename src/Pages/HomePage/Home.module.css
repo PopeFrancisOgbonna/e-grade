@@ -1,7 +1,11 @@
-.flex {
+.flex,
+.flex1 {
   display: flex;
   justify-content: space-between;
   margin: 2% 0;
+}
+.divWrap {
+  display: flex;
 }
 .cardWrap {
   width: 30%;
@@ -11,7 +15,7 @@
   box-shadow: 0 0 15px #4c4c4c;
 }
 .cardWrap .flex h2 {
-  font-size: 2.8em;
+  font-size: 2em;
   font-weight: 700;
 }
 .cardWrap p {
@@ -19,7 +23,7 @@
   font-weight: 400;
 }
 .cardBtn {
-  width: 35%;
+  width: 85%;
   padding: 5px;
   border-radius: 10px;
   background: #4fb1e5;
@@ -70,4 +74,47 @@
 }
 .more:hover {
   background: #094074;
+}
+
+@media (max-width: 960px) {
+  .divWrap {
+    flex-direction: column;
+  }
+  .flex {
+    width: 60%;
+  }
+  .flex h2 {
+    font-size: 1.5em;
+  }
+  .cardWrap {
+    width: 55%;
+    margin: 3% auto;
+  }
+  .flex1 {
+    flex-direction: column;
+    margin: 0;
+  }
+  .schoolDiv,
+  .info {
+    width: 98%;
+  }
+  .info {
+    text-align: center;
+  }
+  .info p {
+    font-size: 1.4em;
+    font-weight: 500;
+    text-align: justify;
+  }
+}
+@media screen and (max-width: 575px) {
+  .cardWrap .flex h2 {
+    font-size: 24px;
+  }
+  .cardWrap {
+    width: 90%;
+  }
+  .cardBtn {
+    width: 80%;
+  }
 }
