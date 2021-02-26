@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Lecturer.module.css';
 import Images from '../../../Assets/Images/Images';
 import Header from '../Header';
-import {FaSuitcase, FaUser, FaMenuBar } from 'react-icons/fa'
+import { BiMenu } from 'react-icons/bi'
 import Home from './Home';
 import LoadQuestion from './LoadQuestion';
 import ViewResult from './ViewResult';
@@ -20,7 +20,7 @@ const Lecturer = () =>{
             <Header handleNav={handleNav} username='Sunny Frank' />
             <div className={styles.mainWrap}>
                 <div className={styles.sideNav}>
-                    <FaSuitcase />
+                    <BiMenu className={styles.menu}/>
                     <hr />
                     <div className={styles.btnWrap}>
                         <button className={styles.sideNavBtn} onClick={()=>handleNav('')}>Profile</button>
