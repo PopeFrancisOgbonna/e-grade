@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 
 const Login = () =>{
-
+    
     return(
         <div className={styles.loginWrap}>
             <img id={styles.logos} src={Images.ebsu} alt='school logo' />
