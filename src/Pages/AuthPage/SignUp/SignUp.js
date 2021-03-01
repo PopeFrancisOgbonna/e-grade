@@ -28,15 +28,32 @@ const SignUp = () =>{
         password
     }
     const studentData ={
-        name:'',
-        regNo:'',
-        department:'',
-        level:'',
-        password:''
+        fullName,
+        regNo,
+        dept,
+        level,
+        password
     }
-    //password validation
+    //password validation and submision of form
     const handleSubmit =(e) =>{
         setLoader(true);
+        setErrorMsg('');
+        //Password validation
+        if(password ===''){
+            setTimeout(() => {
+                setErrorMsg('Empty password is not allowed!');
+                setLoader(false)
+            }, 1500);
+            return
+        }
+        //handle Student input data
+        if(student && dept==='' || level ===''){
+            setTimeout(() => {
+                setErrorMsg('Please Enter Your Department and Level.');
+                setLoader(false)
+            },1500);
+            return;
+        }
         if(password === confirmPassword){
             setErrorMsg('');
             // Handling Lecturers registration 
@@ -45,13 +62,18 @@ const SignUp = () =>{
                 .then(console.log(staffData))
                 .catch(err =>console.log(err))
             }
-            
+            else{
+                Axios('/student/register',studentData)
+                .then(console.log(studentData))
+                .catch(err =>console.log(err))
+            }
             return
         }
-        setErrorMsg('Password do not match.');
+        
         setTimeout(() => {
-            setLoader(false)
-        }, 3000);
+            setLoader(false);
+            setErrorMsg('Password do not match.');
+        }, 2000);
 
     }
     return(
@@ -72,8 +94,13 @@ const SignUp = () =>{
                     />
                 </div>
                 <div className={student? style.inputDiv : style.hide}>
-                    <input type='text' placeholder='Department' name='Department'/>
-                    <input type='text' placeholder='Level' name='Level'/>
+                    <input type='text' placeholder='Department' name='Department'
+                        onChange={(e)=>setDept(e.target.value)}
+                    />
+                    <input type='text' placeholder='Level' name='Level'
+                        onChange ={(e)=>setLevel(e.target.value)}
+                    />
+
                 </div>
                 <div className={style.inputDiv}>
                     <input type='password' placeholder='Password' required name='Password'
