@@ -43,6 +43,11 @@ input[type="checkbox"] {
   color: rgb(110, 1, 1);
   cursor: pointer;
 }
+.error {
+  color: #720e01 !important;
+  font-size: 1.2em !important;
+  font-weight: bold !important;
+}
 .logBtn {
   width: 100%;
   padding: 5px;
