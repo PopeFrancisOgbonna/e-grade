@@ -46,6 +46,14 @@ const SignUp = () =>{
             }, 1500);
             return
         }
+        if(fullName|| regNo || dept || level || staffID ===""){
+            setTimeout(() => {
+                setErrorMsg('Please fill out all fields.');
+                setLoader(false)
+            },1500);
+            return;
+        }
+
         //handle Student input data
         if(student && dept==='' || level ===''){
             setTimeout(() => {
