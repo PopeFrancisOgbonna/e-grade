@@ -8,8 +8,7 @@ import Exam from './Exam';
 import Result from './Result';
 import UserHome from './UserHome';
 import {BsCollectionFill,BsPencilSquare, BsFillHouseFill} from 'react-icons/bs';
-import {AiOutlineFilePdf, AiOutlineLogout } from 'react-icons/ai'
-import { Nav } from 'react-bootstrap';
+import {AiOutlineFilePdf, AiOutlineLogout } from 'react-icons/ai';
 
 const Student = () => {
 

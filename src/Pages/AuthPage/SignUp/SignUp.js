@@ -55,7 +55,7 @@ const SignUp = () =>{
         }
 
         //handle Student input data
-        if(student && dept==='' || level ===''){
+        if(student && (dept==='' || level ==='')){
             setTimeout(() => {
                 setErrorMsg('Please Enter Your Department and Level.');
                 setLoader(false)
