@@ -3,7 +3,7 @@ import styles from './Header.module.css';
 import cx from 'classname';
 import Images from '../../Assets/Images/Images'
 import {FaFacebook, FaTwitter, FaInstagramSquare, FaUserAlt, FaHome} from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Nav, Navbar } from 'react-bootstrap';
 
 const Header = (props) =>{
 
@@ -17,14 +17,23 @@ const Header = (props) =>{
                     <FaInstagramSquare className={cx(styles.icons)} />
                 </span>
             </div>
-            <div className={cx(styles.headWrap)}>
-                <img className={cx(styles.logo)} src={Images.eLogo} alt='logo' />
-                <div className={styles.adminNav}>
-                    <FaHome onClick={()=>props.handleNav('')} className={cx(styles.icon, styles.iconLink)}/> 
-                    <p>{props.username}</p>
-                    <FaUserAlt className={styles.icon}/>
-                </div>
-            </div>
+            <Navbar collapseOnSelect expand="lg" className={styles.bg} variant="dark">
+                <Navbar.Brand href="#">
+                    <img src={Images.eLogo} alt='logo'/>
+                </Navbar.Brand>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Collapse id="responsive-navbar-nav">
+                    <Nav className="ml-auto">
+                        <Nav.Link to="/dashboard/user" >
+                            <FaHome id={styles.a_link} onClick={()=>props.handleNav('')}/>
+                        </Nav.Link>
+                        <Nav.Link  className={styles.a_link}>{props.username}</Nav.Link>
+                        <Nav.Link className={styles.a_link}>
+                            <FaUserAlt />
+                        </Nav.Link>
+                    </Nav>
+                </Navbar.Collapse>
+            </Navbar>
         </div>
     )
 }

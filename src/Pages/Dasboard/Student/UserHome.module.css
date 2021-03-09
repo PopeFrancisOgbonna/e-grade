@@ -72,3 +72,14 @@ cite:before {
     transform: scale(1);
   }
 }
+@media screen and (max-width: 980px) {
+  .hero {
+    flex-direction: column;
+  }
+  .heroImage {
+    width: 100%;
+  }
+  .animated_shadow_quote {
+    margin: 2% auto;
+  }
+}

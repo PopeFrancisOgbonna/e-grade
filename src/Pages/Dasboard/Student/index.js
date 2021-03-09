@@ -1,12 +1,15 @@
 import React,{useState} from 'react';
 import styles from './Student.module.css';
 import Header from '../../Dasboard/Header';
-import {FaSuitcase } from 'react-icons/fa';
 import Footer from '../../../Components/Footer/Footer';
 import Register from './RegisterCourse';
+import cx from 'classname';
 import Exam from './Exam';
 import Result from './Result';
 import UserHome from './UserHome';
+import {BsCollectionFill,BsPencilSquare, BsFillHouseFill} from 'react-icons/bs';
+import {AiOutlineFilePdf, AiOutlineLogout } from 'react-icons/ai'
+import { Nav } from 'react-bootstrap';
 
 const Student = () => {
 
@@ -16,18 +19,42 @@ const Student = () => {
     }
     return(
         <div>
-             <Header handleNav={handleNav} username='Sunny Frank' />
+             <Header handleNav={handleNav} username='Sunny Frank ogbonna' />
             <div className={styles.mainWrap}>
                 <div className={styles.sideNav}>
-                    <FaSuitcase />
-                    <hr />
-                    <div className={styles.btnWrap}>
-                        <button className={styles.sideNavBtn} onClick={()=>handleNav('register')}>Register Course</button>
-                        <button className={styles.sideNavBtn} onClick={()=>handleNav('exam')}>Take Examination</button>
-                        <button className={styles.sideNavBtn} onClick={()=>handleNav('result')}>View Results</button>
-                    </div>
-                    <hr />
-                    <button id={styles.sideNavLogout} className={styles.sideNavBtn}>Logout</button>
+                    <span className={styles.container}>
+                        <hr />
+                        <div className={styles.btnWrap}>
+                            <button className={cx(styles.sideNavBtn,styles.home)} onClick={()=>handleNav('')}>
+                                <BsFillHouseFill className={cx(styles.btnIcon)}/>
+                            </button>
+                            <button className={styles.sideNavBtn} onClick={()=>handleNav('register')}>
+                                <BsCollectionFill className={styles.btnIcon}/>
+                                <p className={styles.tooltip}>Register Course</p>
+                            </button>
+                            <button className={styles.sideNavBtn} onClick={()=>handleNav('exam')}>
+                                <BsPencilSquare className={styles.btnIcon}/>
+                                <p className={styles.tooltip}>Take Exam</p>
+                            </button>
+                            <button className={styles.sideNavBtn} onClick={()=>handleNav('result')}>
+                                <AiOutlineFilePdf className={styles.btnIcon}/>
+                               <p className={styles.tooltip}> View Results</p>
+                            </button>
+                        </div>
+                        <hr />
+                        <button id={styles.sideNavLogout} className={styles.sideNavBtn}>
+                            <AiOutlineLogout className={styles.btnIcon}/>
+                            <p className={styles.tooltip}>Logout</p>
+                        </button>
+                    </span>
+                    {/* <Nav defaultActiveKey="/dashboard/user" className="flex-column sm-flex-column">
+                        <Nav.Link href="/home">Active</Nav.Link>
+                        <Nav.Link eventKey="link-1">Link</Nav.Link>
+                        <Nav.Link eventKey="link-2">Link</Nav.Link>
+                        <Nav.Link eventKey="disabled" disabled>
+                            Disabled
+                        </Nav.Link>
+                    </Nav> */}
                 </div>
                 <div className={styles.paperWrap}> 
                     {nav === 'register'? <Register /> :
@@ -36,7 +63,6 @@ const Student = () => {
                         nav === ''?<UserHome />: null
                     } 
                 </div>
-                
             </div>
             <Footer />
         </div>

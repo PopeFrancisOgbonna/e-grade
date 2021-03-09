@@ -35,3 +35,15 @@
   margin: 3% auto;
   padding: 5px;
 }
+@media screen and (max-width: 980px) {
+  .header form {
+    display: flex;
+    flex-direction: column !important;
+    width: 75%;
+    margin: 2% auto;
+  }
+  .header form input {
+    margin: 3% auto;
+    width: 100%;
+  }
+}
