@@ -1,5 +1,4 @@
 import React from 'react';
-import cx from 'classname';
 import styles from './Footer.module.css';
 import Images from '../../Assets/Images/Images';
 

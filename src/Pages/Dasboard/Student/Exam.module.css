@@ -46,12 +46,12 @@
   text-align: center;
 }
 .toggle button {
-  padding: 5px;
+  padding: 5px 15px;
   border-style: none;
   border-radius: 8px;
   margin: 2% 15px;
-  width: 30%;
-  font-size: 1.8em;
+  width: max-content;
+  font-size: 1.3em;
   color: #fff;
 }
 .back {
@@ -61,7 +61,7 @@
   background: #5dacf5d7;
 }
 .icons {
-  font-size: 2.3rem;
+  font-size: 1.8rem;
   color: #fff;
 }
 .submit {
@@ -85,4 +85,10 @@
 }
 .hide {
   visibility: hidden;
+}
+@media screen and (max-width: 980px) {
+  .ExamWrap {
+    flex-direction: column;
+    width: 98%;
+  }
 }
