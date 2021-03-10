@@ -53,3 +53,17 @@ tr {
 tr:nth-child(even) {
   background-color: #f2f2f2;
 }
+
+@media screen and (max-width: 980px) {
+  .header form {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 80%;
+    margin: 5% auto;
+  }
+  .header form input,
+  .header form button {
+    width: 100%;
+    margin: 3% 0;
+  }
+}

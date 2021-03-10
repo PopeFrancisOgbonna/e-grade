@@ -84,3 +84,12 @@ hr {
 .uploadBtn:hover {
   background: #fe9000;
 }
+@media screen and (max-width: 900px) {
+  .questForm {
+    flex-direction: column;
+    width: 95%;
+  }
+  .leftDiv textarea {
+    margin: 5px 0 !important;
+  }
+}
