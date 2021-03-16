@@ -40,6 +40,12 @@
 .reg {
   background: #1a690d;
 }
+.error{
+  color: #ee0404;
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.2em;
+}
 @media screen and (max-width: 980px) {
   .formWrap {
     width: 85%;
