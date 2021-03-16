@@ -1,4 +1,5 @@
 import React,{useState} from 'react';
+// import Particles from 'react-particles-js';
 import styles from './Student.module.css';
 import Header from '../../Dasboard/Header';
 import Footer from '../../../Components/Footer/Footer';
@@ -16,6 +17,18 @@ const Student = () => {
     const handleNav = (nav) =>{
         setNav(nav);
     }
+
+    const particlesOptions = {
+        particles: {
+          number: {
+            value: 400,
+            density: {
+              enable: true,
+              value_area: 800
+            }
+          }
+        }
+      }
     return(
         <div>
              <Header handleNav={handleNav} username='Sunny Frank ogbonna' />
@@ -46,16 +59,9 @@ const Student = () => {
                             <p className={styles.tooltip}>Logout</p>
                         </button>
                     </span>
-                    {/* <Nav defaultActiveKey="/dashboard/user" className="flex-column sm-flex-column">
-                        <Nav.Link href="/home">Active</Nav.Link>
-                        <Nav.Link eventKey="link-1">Link</Nav.Link>
-                        <Nav.Link eventKey="link-2">Link</Nav.Link>
-                        <Nav.Link eventKey="disabled" disabled>
-                            Disabled
-                        </Nav.Link>
-                    </Nav> */}
                 </div>
                 <div className={styles.paperWrap}> 
+                    {/* <Particles params={particlesOptions} /> */}
                     {nav === 'register'? <Register /> :
                         nav === 'exam'? <Exam /> :
                         nav === 'result'? <Result />:

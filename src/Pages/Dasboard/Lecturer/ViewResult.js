@@ -9,7 +9,7 @@ const ViewResult = () =>{
             <div className={styles.header}>
                 <h1>View Exam Results</h1>
                 <form>
-                    <input type='text' name='course' placeholder='Enter Course Code' required/>
+                    <input type='text' name='course_title' placeholder='Enter Course Title' required/>
                     <input type='text' name='course' placeholder='Enter Course Code' required/>
                     <button>Show Result</button>
                 </form>

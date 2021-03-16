@@ -46,18 +46,21 @@ const SignUp = () =>{
             }, 1500);
             return
         }
-        if(fullName|| regNo || dept || level || staffID ===""){
+        //Handles staff input data validation
+        if(fullName ==='' || staffID ===""){
             setTimeout(() => {
                 setErrorMsg('Please fill out all fields.');
+                console.log(student)
                 setLoader(false)
             },1500);
             return;
         }
 
-        //handle Student input data
-        if(student && (dept==='' || level ==='')){
+        //handle Student input data validation
+        if(student && (dept ==='' || level ==='')){
             setTimeout(() => {
                 setErrorMsg('Please Enter Your Department and Level.');
+                
                 setLoader(false)
             },1500);
             return;
@@ -70,6 +73,7 @@ const SignUp = () =>{
                 .then(console.log(staffData))
                 .catch(err =>console.log(err))
             }
+            //Handles Student Registration
             else{
                 Axios('/student/register',studentData)
                 .then(console.log(studentData))

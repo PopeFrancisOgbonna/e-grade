@@ -1,7 +1,8 @@
 import React from 'react';
 import styles from './Lecturer.module.css';
 import Header from '../Header';
-import { BiMenu } from 'react-icons/bi'
+import {BsCollectionFill,BsPencilSquare, BsFillHouseFill, BsPersonPlusFill, BsPersonBoundingBox, BsPerson, BsPersonDashFill, BsFillPersonFill, BsUpload, BsCloudUpload} from 'react-icons/bs';
+import {AiOutlineFilePdf, AiOutlineLogout } from 'react-icons/ai';
 import Home from './Home';
 import LoadQuestion from './LoadQuestion';
 import ViewResult from './ViewResult';
@@ -19,15 +20,30 @@ const Lecturer = () =>{
             <Header handleNav={handleNav} username='Sunny Frank' />
             <div className={styles.mainWrap}>
                 <div className={styles.sideNav}>
-                    <BiMenu className={styles.menu}/>
+                   
                     <hr />
+                    <button className={styles.menuBtn} onClick={()=>handleNav('')}>
+                        <BsFillHouseFill className={styles.menu} />
+                    </button>
                     <div className={styles.btnWrap}>
-                        <button className={styles.sideNavBtn} onClick={()=>handleNav('')}>Profile</button>
-                        <button className={styles.sideNavBtn} onClick={()=>handleNav('load question')}>Upload Questions</button>
-                        <button className={styles.sideNavBtn} onClick={()=>handleNav('result')}>View Results</button>
+                        <button className={styles.sideNavBtn} onClick={()=>handleNav('')}>
+                            <BsFillPersonFill className={styles.icons} />
+                            <p className={styles.tooltip}>Profile</p>
+                        </button>
+                        <button className={styles.sideNavBtn} onClick={()=>handleNav('load question')}>
+                            <BsCloudUpload className={styles.icons} />
+                            <p className={styles.tooltip}>Upload Questions</p>
+                        </button>
+                        <button className={styles.sideNavBtn} onClick={()=>handleNav('result')}>
+                            <AiOutlineFilePdf className={styles.icons} />
+                            <p className={styles.tooltip}>View Results</p>
+                        </button>
                     </div>
                     <hr />
-                    <button id={styles.sideNavLogout} className={styles.sideNavBtn}>Logout</button>
+                    <button id={styles.sideNavLogout} className={styles.sideNavBtn}>
+                        <AiOutlineLogout className={styles.icons} />
+                        <p className={styles.tooltip}>Logout</p>
+                        </button>
                 </div>
                 <div className={styles.paperWrap}> 
                     {nav === ''? <Home /> :
