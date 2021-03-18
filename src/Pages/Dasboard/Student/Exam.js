@@ -39,6 +39,7 @@ const Exam = () =>{
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  
   //for submit button toggle
   const [showSubmit, setShowSubmit] = useState(false);
   const handleSubmitBtn = (option) => setShowSubmit(option);
@@ -62,6 +63,7 @@ const Exam = () =>{
       }
       setAns('') 
     }
+
     //Prevents the addition of empty score when question length is exceeded.
     if(score.length === exam.length){
       return;
