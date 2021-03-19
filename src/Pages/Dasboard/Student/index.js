@@ -17,6 +17,12 @@ const Student = () => {
   const handleNav = (nav) =>{
     setNav(nav);
   }
+  //logout
+  const logout = () => {
+   setTimeout(() => {
+    window.location.href='/';
+   }, 2000);
+  }
 
   const particlesOptions = {
     particles: {
@@ -54,7 +60,9 @@ const Student = () => {
               </button>
             </div>
             <hr />
-            <button id={styles.sideNavLogout} className={styles.sideNavBtn}>
+            <button id={styles.sideNavLogout} className={styles.sideNavBtn}
+              onClick={() =>logout()}
+            >
               <AiOutlineLogout className={styles.btnIcon}/>
               <p className={styles.tooltip}>Logout</p>
             </button>

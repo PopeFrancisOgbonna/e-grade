@@ -105,9 +105,11 @@
 
 @media screen and (max-width: 980px) {
   .sideNavBtn p,
-  #sideNavLogout p {
+  #sideNavLogout p,
+  Link.tooltip {
     position: absolute !important;
     background: #fe9000 !important;
+    text-decoration: none;
     width: max-content;
     color: #fff;
     left: 50px;

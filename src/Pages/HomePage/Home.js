@@ -8,9 +8,12 @@ import Images from '../../Assets/Images/Images';
 
 
 const Home = () => {
-  useEffect(() => {
 
-  })
+  //clears the key values used for authenticating users.
+  useEffect(() => {
+    localStorage.clear();
+  },[]);
+
   return(
     <div>
       <Header />

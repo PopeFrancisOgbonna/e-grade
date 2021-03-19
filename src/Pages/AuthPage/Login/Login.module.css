@@ -43,6 +43,22 @@ input[type="checkbox"] {
   color: rgb(110, 1, 1);
   cursor: pointer;
 }
+#link{
+  font-weight: bold;
+  font-size: 1.8em;
+  color: #02a75a;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.loginOption{
+  font-size: 1.2em;
+  margin: 2% 0;
+  font-weight: 600;
+}
+.loginOption span{
+  color:#0377b1;
+  cursor: pointer;
+}
 .error {
   color: #720e01 !important;
   font-size: 1.2em !important;

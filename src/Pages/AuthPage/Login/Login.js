@@ -12,6 +12,7 @@ const Login = () =>{
   const [password, setPassword] =useState('');
   const [userName, setUserName] = useState('');
   const [error, setError] = useState('');
+  const [student, setStudent] = useState(true);
 
   //login credentials
   const payload = {
@@ -33,6 +34,16 @@ const Login = () =>{
     Axios.post('/login',payload)
       .then(console.log(payload))
       .catch(err =>console.log(err));
+      console.log(student);
+    setTimeout(() => {
+      if(!student){
+        localStorage.setItem("admin",true);
+        window.location.href='/dashboard/user/lecturer';
+        return;
+      }
+      localStorage.setItem("userType","user");
+      window.location.href='/dashboard/user';
+    }, 3000);
 
   }
   return(
@@ -41,9 +52,14 @@ const Login = () =>{
       <h4>Welcome Back</h4>
       <p>Login to access portal</p>
       <div>
+        <Link to='/' id={styles.link} className='display-5'>Home</Link>
+        <p className={styles.loginOption}
+          onClick={() => setStudent(!student)}
+        >{student ? 'Not a Student?': <>Not a Lecturer?</>} <span>Login Here.</span></p>
+
         <form className={styles.logForm} onSubmit={(e)=>e.preventDefault()}>
           <div className={styles.inputContainer}>
-            <input type='text' placeholder='Enter Reg.No / Staff ID' required 
+            <input type='text' placeholder={student?'Enter Reg.No' :'Staff ID'} required 
               onChange={(e) =>setUserName(e.target.value)}
             />
           </div>
