@@ -78,8 +78,8 @@ const Login = () =>{
               <Loader  style={{margin:'2px auto'}}
                 type="ThreeDots"
                 color="#00BFFF"
-                height={100}
-                width={100}
+                height={80}
+                width={80}
               />
             }
           </div>
