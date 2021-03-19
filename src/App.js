@@ -5,9 +5,11 @@ import NotFound from './Pages/NotFound/NotFound';
 import Home from './Pages/HomePage/Home';
 import Login from './Pages/AuthPage/Login/Login';
 import SignUp from './Pages/AuthPage/SignUp/SignUp';
-import Dashboard from './Pages/Dasboard/Lecturer/index'
-import Student from './Pages/Dasboard/Student';
+import Dashboard from './Pages/Dasboard'
+
+
 function App() {
+
   return (
     <div className="App">
       <Router>
@@ -23,9 +25,9 @@ function App() {
           </Route>
           <Route exact path='/dashboard/user/lecturer'>
             <Dashboard />
-          </Route>
+          </Route> 
           <Route exact path='/dashboard/user'>
-            <Student />
+            <Dashboard />
           </Route>
           <Route path='/404'>
             <NotFound />
