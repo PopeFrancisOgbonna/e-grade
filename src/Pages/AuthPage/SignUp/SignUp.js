@@ -12,10 +12,11 @@ const SignUp = () =>{
   const [student, setStudent] = useState(true);
   const userStatus = student ? 'Lecturer': 'Student'; //For alternation the login options
   const [errorMsg, setErrorMsg] = useState(''); // For handling error events
+  const [msg, setMsg] = useState(''); //success message
   
   // dataset
   const [fullName, setFullName] = useState('');
-  const [staffID, setStaffID] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [regNo, setRegNo] = useState('');
@@ -24,14 +25,12 @@ const SignUp = () =>{
 
   const staffData ={
     fullName,
-    staffID,
+    email,
     password
   }
   const studentData ={
     fullName,
     regNo,
-    dept,
-    level,
     password
   }
   //password validation and submision of form
@@ -47,7 +46,7 @@ const SignUp = () =>{
       return
     }
     //Handles staff input data validation
-    if(fullName ==='' || staffID ===""){
+    if((fullName ==='' || email ==="") && !student){
       setTimeout(() => {
         setErrorMsg('Please fill out all fields.');
         console.log(student)
@@ -69,15 +68,43 @@ const SignUp = () =>{
       setErrorMsg('');
       // Handling Lecturers registration 
       if(!student){
-        Axios('/register',staffData)
-        .then(console.log(staffData))
-        .catch(err =>console.log(err))
+        const register = async () => {
+          try {
+            const result = await Axios.post('http://localhost:3020/staff/register', staffData)
+            if(result.status === 200){
+              console.log(result.data)
+              setMsg('Registration successful! Redirecting...');
+              setTimeout(() => {
+                window.location.href = '/login';
+              }, 2000);
+            }
+          } catch (err) {
+            console.log({erro:err});
+            setErrorMsg('Oops! Something went wrong. Check Your Network and try again.');
+            setLoader(false);
+          }
+        } 
+        register();
       }
       //Handles Student Registration
       else{
-        Axios('/student/register',studentData)
-        .then(console.log(studentData))
-        .catch(err =>console.log(err))
+        const register = async () => {
+          try {
+            const result = await Axios.post('http://localhost:3020/student/register', studentData)
+            if(result.status === 200){
+              console.log(result.data)
+              setMsg('Registration successful! Redirecting...');
+              setTimeout(() => {
+                window.location.href = '/login';
+              }, 2000);
+            }
+          } catch (err) {
+            console.log({erro:err});
+            setErrorMsg('Oops! Something went wrong. Check Your Network and try again.');
+            setLoader(false);
+          }
+        } 
+        register();
       }
       return
     }
@@ -101,8 +128,8 @@ const SignUp = () =>{
           <input type='text' placeholder='Full Name' required name='FullName' 
             onChange={(e)=>setFullName(e.target.value)}
           />
-          <input type='text' placeholder={student? 'Reg No.' : 'Staff ID'} required name={student? 'RegNo' : 'StaffID'} 
-            onChange={student ? (e)=>setRegNo(e.target.value) : (e) =>setStaffID(e.target.value)}
+          <input type={student? 'text' : 'email'} placeholder={student? 'Reg No.' : 'Email Address'} required name={student? 'RegNo' : 'email'} 
+            onChange={student ? (e)=>setRegNo(e.target.value) : (e) =>setEmail(e.target.value)}
           />
         </div>
         <div className={student? style.inputDiv : style.hide}>
@@ -122,6 +149,7 @@ const SignUp = () =>{
           />
         </div>
         <p id={style.error}>{errorMsg}</p>
+        <p className='text-success'>{msg}</p>
         <div>
           {!loader ? <button id={style.sendBtn} onClick={()=>handleSubmit()}>Create Account</button> :
           

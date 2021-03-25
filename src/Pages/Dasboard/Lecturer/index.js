@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Lecturer.module.css';
 import Header from '../Header';
-import {BsCollectionFill,BsPencilSquare, BsFillHouseFill, BsPersonPlusFill, BsPersonBoundingBox, BsPerson, BsPersonDashFill, BsFillPersonFill, BsUpload, BsCloudUpload} from 'react-icons/bs';
+import { BsFillHouseFill, BsFillPersonFill, BsCloudUpload} from 'react-icons/bs';
 import {AiOutlineFilePdf, AiOutlineLogout } from 'react-icons/ai';
 import Home from './Home';
 import LoadQuestion from './LoadQuestion';

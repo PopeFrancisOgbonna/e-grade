@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './Exam.module.css'
-import cx, { setTo } from 'classname';
+import cx from 'classname';
 import {FaChevronLeft, FaChevronRight, FaRegPaperPlane } from 'react-icons/fa';
 import  Modals  from '../../../Components/Modal/Modals';
 
@@ -42,7 +42,6 @@ const Exam = () =>{
   
   //for submit button toggle
   const [showSubmit, setShowSubmit] = useState(false);
-  const handleSubmitBtn = (option) => setShowSubmit(option);
 
   let [nextQuest, setNextQuest] = useState(0);
   let [score, setScore] = useState([]);
@@ -143,7 +142,7 @@ const Exam = () =>{
             ><FaRegPaperPlane className={styles.iconssub}/>Submit Answer</button>
           </div>
           <Modals show={show} handleClose={handleClose} handleShow={handleShow} title='Your Exam Score'>
-            <p>Congratulations! You scored {total} </p>
+            <p>Your total Score is </p>
             <p className='lead display-3'>{(total/(exam.length * 5)) * 100}%</p>
           </Modals>
         </div>

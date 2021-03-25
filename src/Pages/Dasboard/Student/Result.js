@@ -93,7 +93,9 @@ const Result = () =>{
           showResult ?  
           <table>
             <thead>
-              {tableHeader()}
+              <tr>
+                {tableHeader()}
+              </tr>
             </thead>
             <tbody>
             {courseTitle !== ''?( 
