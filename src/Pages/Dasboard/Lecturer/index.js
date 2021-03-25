@@ -9,7 +9,7 @@ import ViewResult from './ViewResult';
 import { useState } from 'react';
 
 
-const Lecturer = () =>{
+const Lecturer = ({name}) =>{
 
   const [nav, setNav] =useState('');
   const handleNav = (nav) =>{
@@ -17,7 +17,7 @@ const Lecturer = () =>{
   }
   return(
     <div>
-      <Header handleNav={handleNav} username='Sunny Frank' />
+      <Header handleNav={handleNav} username={name} />
       <div className={styles.mainWrap}>
         <div className={styles.sideNav}>
             
@@ -40,7 +40,9 @@ const Lecturer = () =>{
             </button>
           </div>
           <hr />
-          <button id={styles.sideNavLogout} className={styles.sideNavBtn}>
+          <button id={styles.sideNavLogout} className={styles.sideNavBtn}
+            onClick={() =>{window.location.href='/'}}
+          >
             <AiOutlineLogout className={styles.icons} />
             <p className={styles.tooltip}>Logout</p>
           </button>

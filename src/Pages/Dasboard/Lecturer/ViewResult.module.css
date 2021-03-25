@@ -44,12 +44,15 @@ thead {
   background-color: #4caf50;
   color: white;
   font-weight: bold;
-  font-size: 1.3em;
+  font-size: 1em;
+  text-align: center;
 }
 tr {
-  font-size: 1.2em;
+  font-size: 1.1em;
   padding: 10px;
+  text-align: center;
 }
+
 tr:nth-child(even) {
   background-color: #f2f2f2;
 }

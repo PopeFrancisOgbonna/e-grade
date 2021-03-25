@@ -44,7 +44,7 @@ const Login = () =>{
           }
           setTimeout(() => {
             window.location.href='/dashboard/user/lecturer';
-          }, 2000);
+          }, 4000);
         } catch (error) {
           console.log(error);
           setLoading(false);

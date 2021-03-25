@@ -3,41 +3,11 @@ import styles from './Result.module.css'
 
 
 
-const Result = () =>{
+const Result = ({regNo, results}) =>{
 
-  const resultData = [
-    {
-      id: 1,
-      name: 'Francis Sunday',
-      course_title: 'Programming I',
-      course_code: 'CSC 201',
-      score: '60%'
-    },
-    {
-      id: 2,
-      name: 'Francis Sunday',
-      course_title: 'Programming II',
-      course_code: 'CSC 204',
-      score: '60%'
-    },
-    {
-      id: 3,
-      name: 'Francis Sunday',
-      course_title: 'Linear Algebra',
-      course_code: 'Math 201',
-      score: '80%'
-    },
-    {
-      id: 4,
-      name: 'Francis Sunday',
-      course_title: 'System Analysis & Design',
-      course_code: 'CSC 335',
-      score: '40%'
-    }
-  ];
-
+  const headers = {"s/n":'', name:'', regNo:'', course:'', code: '', score:''}
   let tableHeader = () => {
-    let header = Object.keys(resultData[0]);
+    let header = Object.keys(headers);
     return header.map((key, index) => {
       return<th key={index}>{key.toUpperCase()}</th>
     })
@@ -48,6 +18,7 @@ const Result = () =>{
       return<tr key={result.id}>
         <td>{++index}</td>
         <td>{result.name}</td>
+        <td>{result.reg_no}</td>
         <td>{result.course_title}</td>
         <td>{result.course_code}</td>
         <td>{result.score}</td>
@@ -66,9 +37,10 @@ const Result = () =>{
       return
     }
     setShowResult(true);
+    setCourseTitle('');
   }
-  let filtered = resultData.filter((results) =>{
-    return results.course_title.toLowerCase() === courseTitle.toLowerCase();
+  let filtered = results.filter((result) =>{
+    return result.course_title.toLowerCase() === courseTitle.toLowerCase();
   })
   
   return(
@@ -78,6 +50,7 @@ const Result = () =>{
         <div className={styles.form}>
           <input type='text' name='course' placeholder='Enter Course Title' required
             onChange={(e) => setCourseTitle(e.target.value)}
+            value={courseTitle}
           />
           <button id={styles.filter}
             onClick={() =>handleDisplay()}
@@ -100,7 +73,7 @@ const Result = () =>{
             <tbody>
             {courseTitle !== ''?( 
               renderTable(filtered)
-            ): renderTable(resultData)}
+            ): renderTable(results)}
             </tbody>
           </table>: null
         }

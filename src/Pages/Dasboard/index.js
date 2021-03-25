@@ -8,11 +8,11 @@ const Dashboard = ( ) => {
 
   const userType = JSON.parse(localStorage.getItem('userType'));
   const admin = JSON.parse(localStorage.getItem('admin'));
-  if(admin.admin){
-    return<Lecturer />
+  if(admin != null && admin.admin){
+    return<Lecturer name={admin.name}/>
   }
   if(userType.type === 'user'){
-    return <Student />
+    return <Student name={userType.name} regNo={userType.regNo} />
   }
 
   return <Redirect to={{pathname: '/login'}} />

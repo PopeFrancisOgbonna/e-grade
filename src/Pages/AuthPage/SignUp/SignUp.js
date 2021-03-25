@@ -76,7 +76,7 @@ const SignUp = () =>{
               setMsg('Registration successful! Redirecting...');
               setTimeout(() => {
                 window.location.href = '/login';
-              }, 2000);
+              }, 4000);
             }
           } catch (err) {
             console.log({erro:err});
@@ -96,7 +96,7 @@ const SignUp = () =>{
               setMsg('Registration successful! Redirecting...');
               setTimeout(() => {
                 window.location.href = '/login';
-              }, 2000);
+              }, 4000);
             }
           } catch (err) {
             console.log({erro:err});
