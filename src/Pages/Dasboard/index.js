@@ -6,15 +6,15 @@ import Student from './Student';
 
 const Dashboard = ( ) => {
 
-    const userType = localStorage.getItem('userType');
-    const admin = localStorage.getItem('admin');
-    if(admin){
-        return<Lecturer />
-    }
-    if(userType === 'user'){
-        return <Student />
-    }
+  const userType = JSON.parse(localStorage.getItem('userType'));
+  const admin = JSON.parse(localStorage.getItem('admin'));
+  if(admin != null && admin.admin){
+    return<Lecturer name={admin.name}/>
+  }
+  if(userType.type === 'user'){
+    return <Student name={userType.name} regNo={userType.regNo} />
+  }
 
-    return <Redirect to={{pathname: '/login'}} />
+  return <Redirect to={{pathname: '/login'}} />
 }
 export default Dashboard;

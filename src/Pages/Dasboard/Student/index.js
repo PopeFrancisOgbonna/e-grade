@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useEffect, useState} from 'react';
 // import Particles from 'react-particles-js';
 import styles from './Student.module.css';
 import Header from '../../Dasboard/Header';
@@ -10,8 +10,14 @@ import Result from './Result';
 import UserHome from './UserHome';
 import {BsCollectionFill,BsPencilSquare, BsFillHouseFill} from 'react-icons/bs';
 import {AiOutlineFilePdf, AiOutlineLogout } from 'react-icons/ai';
+import Axios from 'axios';
 
-const Student = () => {
+const Student = ({name, regNo}) => {
+
+  //Student details
+  const user = {name, regNo};
+  const [results, setResults] = useState([]);
+  const [exam, setExam] = useState([]);
 
   const [nav, setNav] =useState('');
   const handleNav = (nav) =>{
@@ -35,9 +41,24 @@ const Student = () => {
       }
     }
   }
+
+  useEffect(() =>{
+    Axios.get(`http://localhost:3020/result/?regNo=${user.regNo}`)
+      .then((response) => {
+        if(response.data.length){
+          setResults(response.data);
+        }
+      });
+    Axios.get('http://localhost:3020/question')
+      .then((response) => {
+        if(response.data.length){
+          setExam(response.data)
+        }
+      });
+  },[])
   return(
     <div>
-      <Header handleNav={handleNav} username='Sunny Frank ogbonna' />
+      <Header handleNav={handleNav} username= {user.name} />
     <div className={styles.mainWrap}>
         <div className={styles.sideNav}>
           <span className={styles.container}>
@@ -54,7 +75,7 @@ const Student = () => {
                 <BsPencilSquare className={styles.btnIcon}/>
                 <p className={styles.tooltip}>Take Exam</p>
               </button>
-              <button className={styles.sideNavBtn} onClick={()=>handleNav('result')}>
+              <button className={styles.sideNavBtn} onClick={()=>{handleNav('result');console.log(results)}}>
                 <AiOutlineFilePdf className={styles.btnIcon}/>
                 <p className={styles.tooltip}> View Results</p>
               </button>
@@ -71,8 +92,8 @@ const Student = () => {
         <div className={styles.paperWrap}> 
           {/* <Particles params={particlesOptions} /> */}
           {nav === 'register'? <Register /> :
-            nav === 'exam'? <Exam /> :
-            nav === 'result'? <Result />:
+            nav === 'exam'? <Exam user={user} exam={exam}/> :
+            nav === 'result'? <Result regNo ={user.regNo} results ={results}/>:
             nav === ''?<UserHome />: null
           } 
         </div>

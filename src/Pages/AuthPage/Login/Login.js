@@ -13,6 +13,7 @@ const Login = () =>{
   const [userName, setUserName] = useState('');
   const [error, setError] = useState('');
   const [student, setStudent] = useState(true);
+  const [msg, setMsg] = useState('');
 
   //login credentials
   const payload = {
@@ -31,21 +32,49 @@ const Login = () =>{
       }, 1500);
       return;
     }
-    Axios.post('/login',payload)
-      .then(console.log(payload))
-      .catch(err =>console.log(err));
-      console.log(student);
-    setTimeout(() => {
-      if(!student){
-        localStorage.setItem("admin",true);
-        window.location.href='/dashboard/user/lecturer';
-        return;
+    if(!student){
+      const login = async () => {
+        try {
+          const result = await Axios.post("http://localhost:3020/staff",payload)
+          if(result.data.length){
+            console.log(result.data[0])
+            let details ={admin:true, name: result.data[0].full_name};
+            localStorage.setItem('admin',JSON.stringify(details));
+            setMsg('Redirecting...');
+          }
+          setTimeout(() => {
+            window.location.href='/dashboard/user/lecturer';
+          }, 4000);
+        } catch (error) {
+          console.log(error);
+          setLoading(false);
+          setError('Invalid Username and Password!');
+        }
+      }     
+      login();
+      return;
+    }
+    const login = async () => {
+      try {
+        const result = await Axios.post("http://localhost:3020/student",payload)
+        if(result.data.length){
+          let details = {type:'user',name:result.data[0].full_name, regNo:result.data[0].reg_no}
+          localStorage.setItem("userType",JSON.stringify(details));
+          setMsg('Redirecting...');
+        }
+        setTimeout(() => {
+          window.location.href='/dashboard/user';
+        }, 4000);
+      } catch (error) {
+        console.log(error);
+        setLoading(false);
+        setError('Invalid Username and Password!');
       }
-      localStorage.setItem("userType","user");
-      window.location.href='/dashboard/user';
-    }, 3000);
-
+    }     
+    login();
   }
+  
+
   return(
     <div className={styles.loginWrap}>
       <img id={styles.logos} src={Images.ebsu} alt='school logo' />
@@ -59,7 +88,7 @@ const Login = () =>{
 
         <form className={styles.logForm} onSubmit={(e)=>e.preventDefault()}>
           <div className={styles.inputContainer}>
-            <input type='text' placeholder={student?'Enter Reg.No' :'Staff ID'} required 
+            <input type={student?'text' :'email'}  placeholder={student?'Enter Reg.No' :'Enter your email'} required 
               onChange={(e) =>setUserName(e.target.value)}
             />
           </div>
@@ -73,13 +102,14 @@ const Login = () =>{
             <p>Forgot Password?</p>
           </div>
           <p className={styles.error}>{error}</p>
+          <p className='text-success'>{msg}</p>
           <div className={styles.authDiv}>
             {!loading ? <button className={cx(styles.logBtn)} onClick={()=>handleSubmit()}>Login</button>:
               <Loader  style={{margin:'2px auto'}}
                 type="ThreeDots"
                 color="#00BFFF"
-                height={100}
-                width={100}
+                height={80}
+                width={80}
               />
             }
           </div>

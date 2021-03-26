@@ -3,6 +3,10 @@
   padding: 25px;
   text-align: center;
 }
+.wrappers {
+  width: 45%;
+  margin: 0 auto;
+}
 .qBanner p {
   font-size: 1.8rem;
 }
@@ -85,6 +89,12 @@
 }
 .hide {
   visibility: hidden;
+}
+.error {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #d40303;
+  text-align: center;
 }
 @media screen and (max-width: 980px) {
   .ExamWrap {
