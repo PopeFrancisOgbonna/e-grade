@@ -17,6 +17,7 @@ const Student = ({name, regNo}) => {
   //Student details
   const user = {name, regNo};
   const [results, setResults] = useState([]);
+  const [exam, setExam] = useState([]);
 
   const [nav, setNav] =useState('');
   const handleNav = (nav) =>{
@@ -47,7 +48,13 @@ const Student = ({name, regNo}) => {
         if(response.data.length){
           setResults(response.data);
         }
-      })
+      });
+    Axios.get('http://localhost:3020/question')
+      .then((response) => {
+        if(response.data.length){
+          setExam(response.data)
+        }
+      });
   },[])
   return(
     <div>
@@ -85,7 +92,7 @@ const Student = ({name, regNo}) => {
         <div className={styles.paperWrap}> 
           {/* <Particles params={particlesOptions} /> */}
           {nav === 'register'? <Register /> :
-            nav === 'exam'? <Exam user={user}/> :
+            nav === 'exam'? <Exam user={user} exam={exam}/> :
             nav === 'result'? <Result regNo ={user.regNo} results ={results}/>:
             nav === ''?<UserHome />: null
           } 

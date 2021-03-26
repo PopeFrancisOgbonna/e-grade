@@ -2,45 +2,16 @@ import React, { useState } from 'react';
 import Axios from 'axios';
 import styles from './Exam.module.css'
 import cx from 'classname';
-import {FaChevronLeft, FaChevronRight, FaRegPaperPlane } from 'react-icons/fa';
+import {FaBackward, FaChevronLeft, FaChevronRight, FaRegPaperPlane } from 'react-icons/fa';
 import  Modals  from '../../../Components/Modal/Modals';
 
 
 
-const Exam = ({user}) =>{
-
+const Exam = (props) =>{
+  const examQuestions = props.exam;
+  const user = props.user;
   //exan questions
-  const examQuestions = [
-    {
-      id: 1,
-      course: 'Programming I',
-      code: 'CSC 102',
-      question: 'What is Force?',
-      ans: 'Force is the product of mass and acceleration due to gravity',
-      keyword: ['mass', 'acceleration', 'gravity','product']
-    },
-    {
-      id: 2,
-      code: 'CSC 101',
-      question: 'Define scalar quantity.',
-      ans: 'A Scalar  is underived quantity having magnitude but without direction.',
-      keyword: ['magnitude', 'direction', 'without','underived quantity']
-    },
-    {
-      id: 3,
-      code: 'CSC 102',
-      question: 'List the two types of forces',
-      ans: 'contact force and Force fields',
-      keyword: ['contact', 'field', 'force',]
-    },
-    {
-      id: 4,
-      code: 'CSC 101',
-      question: 'What do you understand by Inertia?',
-      ans: 'The inertia of a body is its reluctance to  come to rest when in motion or move when at rest as a result of force applied',
-      keyword: ['reluctance', 'rest', 'force applied','mass', 'velocity']
-    },
-  ];
+ 
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -60,7 +31,7 @@ const Exam = ({user}) =>{
     setTakeExam(true);
   }
   let exam = examQuestions.filter((exams) =>{
-    return exams.code.toLowerCase() === code.toLowerCase();
+    return exams.course_code.toLowerCase() === code.toLowerCase();
   })
   //for submit button toggle
   const [showSubmit, setShowSubmit] = useState(false);
@@ -220,8 +191,11 @@ const Exam = ({user}) =>{
               </div>
             </div>
             </> :
-            <div className='mt-5'>
-              <p className={styles.error}>This exam is not scheduled for today. Please check the examination time table</p>
+            <div className='mt-5 text-center'>
+              <p className={styles.error}>This exam is not scheduled for today. <br/> Please check the examination time table for more information!</p>
+              <button className='btn btn-secondary btn-lg my-2'
+                onClick={() => setTakeExam(false)}
+              ><FaBackward /> Return</button>
             </div>
           }
         </>

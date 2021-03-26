@@ -43,22 +43,30 @@ const LoadQuestion = () =>{
       return;
     }
     
-    Axios.post('/load-question', payload)
-      .then(console.log(payload))
-      .catch(err => console.log(err));
-    setTimeout(() => {
+    const upload = async () =>{
+      const result = await Axios.post('http://localhost:3020/question', payload);
+      if(result.data){
+        console.log(result.data);
+        alert(result.data);
+        setTimeout(() => {
+          setLoading(false);
+          setDept('');
+          setLevel('');
+          setCourse('');
+          setCode('');
+          setQuest('');
+          setAns('');
+          setKey1('')
+          setKey2('');
+          setKey3('');
+          setKey4('')
+        }, 2000);
+        return;
+      }
+      setError('Ooops! Something went wrong. Check your network and try again.')
       setLoading(false);
-      setDept('');
-      setLevel('');
-      setCourse('');
-      setCode('');
-      setQuest('');
-      setAns('');
-      setKey1('')
-      setKey2('');
-      setKey3('');
-      setKey4('')
-    }, 2000)
+    }
+    upload();
   }
 
   return(
@@ -128,7 +136,7 @@ const LoadQuestion = () =>{
               />
             </div>
           </div>
-          <p>{error}</p>
+          <p className='text-danger font-weight-bold'>{error}</p>
           <div>
             { !loading ? <button className={styles.uploadBtn}
                 onClick={() => handleSubmit()}
