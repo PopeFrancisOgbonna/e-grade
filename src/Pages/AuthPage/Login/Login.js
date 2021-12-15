@@ -114,6 +114,11 @@ const Login = () =>{
             }
           </div>
           <p>Don't have an Account? <Link to='/register' className={styles.reg}>Register Here.</Link></p>
+          <p style={{textAlign:'left',fontSize:"12px"}}>Test Data:<br/>
+            Student: esut/2014/155200<br/>
+            Lecturer: popefrancis4real@gmail.com
+          </p>
+          <p style={{textAlign:'left',fontSize:"12px"}}>Password: 12345</p>
         </form>
       </div>
     </div>

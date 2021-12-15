@@ -5,7 +5,7 @@ import Loader from 'react-loader-spinner';
 import Axios from 'axios';
 
 
-const LoadQuestion = () =>{
+const LoadQuestion = () => {
 
   const [loading, setLoading] = useState(false);
   const [dept, setDept] = useState('');
